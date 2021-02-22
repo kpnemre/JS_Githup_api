@@ -26,6 +26,8 @@ function getData(e) {
             ui.showError("Hatalı isim girişi yaptınız")
         }
         else{
+            ui.addToUI(username)
+            Storage. addToStorage(username)
             ui.showInfo(res.user)
             ui.showRepo(res.repo)
         }
@@ -45,4 +47,12 @@ function clearAllSearched() {}
 
 function getAllSearched() {
   // arananları al ve Uİ ye ekle
+
+  let users = Storage.addToStorage();
+  let result="";
+  users.forEach(user => {
+  result +=  `<li class="list-group-item">${user}</li>` 
+
+  });
+  lastUser.innerHTML =result;
 }

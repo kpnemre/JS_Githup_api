@@ -93,9 +93,9 @@ class UI {
   }
 
   showRepo(repos) {
-      this.repoDiv.innerHTML=""
-      repos.forEach(repo => {
-          this.repoDiv.innerHTML += `
+    this.repoDiv.innerHTML = "";
+    repos.forEach((repo) => {
+      this.repoDiv.innerHTML += `
           <div class="mb-2 card-body">
                     <div class="row">
                         <div class="col-md-2">
@@ -115,7 +115,18 @@ class UI {
                 </div>
 
                 </div>
-          `
-      });
+          `;
+    });
+  }
+
+  addToUI(username) {
+    let users = Storage.getFromStorage();
+    if (users.indexOf(username) === -1) {
+      //    <li class="list-group-item">asdaskdjkasjkşdjşasjd</li>
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = username;
+      this.lastUsers.appendChild(li);
+    }
   }
 }
