@@ -1,4 +1,6 @@
 class Storage {
+
+
   static getFromStorage() {
     let users;
     if (localStorage.getItem("searched") === null) {
@@ -9,6 +11,7 @@ class Storage {
     return users;
   }
 
+
   static addToStorage(username) {
     let users = this.getFromStorage();
     
@@ -17,7 +20,12 @@ class Storage {
     }
     localStorage.setItem("searched", JSON.stringify(users) )
   }
+
+
   static clearAllStorage() {
-      localStorage.removeItem();
+    if (confirm("Are you sure?")) {
+      localStorage.removeItem("searched");
+    }
+    
   }
 }

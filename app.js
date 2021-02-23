@@ -43,7 +43,10 @@ function getData(e) {
   // sayfanın yenilenmesini önler
 }
 
-function clearAllSearched() {}
+function clearAllSearched() {
+  Storage.clearAllStorage();
+  lastUser.innerHTML="";
+}
 
 function getAllSearched() {
   // arananları al ve Uİ ye ekle
